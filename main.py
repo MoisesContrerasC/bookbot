@@ -1,12 +1,17 @@
 from stats import get_word_count
+from stats import get_character_count
+from stats import get_sorted_list
+from stats import get_book_text
+from stats import get_print_format
 
-def get_book_text(file_path):
-    with open(file_path) as f:
-        file_contents = f.read()    
-        return file_contents
+path_to_file = "books/frankenstein.txt"
 
 def main():
-    num_words = get_word_count(get_book_text("./books/frankenstein.txt"))
-    print(f"{num_words} words found in the document")
+    book_text = get_book_text(path_to_file)
+    word_count = get_word_count(book_text)
+    character_count = get_character_count(book_text)
+    sorted_list = get_sorted_list(character_count)
 
+    
+    get_print_format(path_to_file, word_count, sorted_list)
 main()
